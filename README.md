@@ -12,4 +12,3 @@ Iniciei o projeto com a linguagem Java juntamente com Spring Boot, usando o Java
 Para banco de dados, é usado o PostgreSQL.
 
 Postman é usado para testes de requisições.
-
