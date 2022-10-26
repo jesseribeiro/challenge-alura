@@ -3,6 +3,7 @@
 
 Alura Challenge Back-End
 Implementando uma API REST
+
 Desenvolver uma API em que uma aplicação será capaz de reunir vídeos.
 
 Desenvolvimento
