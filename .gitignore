@@ -1,6 +1,12 @@
 # Compiled class file
 *.class
 
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
 # Log file
 *.log
 
@@ -11,7 +17,6 @@
 .mtj.tmp/
 
 ### IntelliJ IDEA ###
-HELP.md
 application.properties
 target
 .idea
