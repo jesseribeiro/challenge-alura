@@ -1,0 +1,10 @@
+com\challenge\alura\bean\VideoBean.class
+com\challenge\alura\controller\VideoController.class
+com\challenge\alura\AluraApplication.class
+com\challenge\alura\service\GenericService.class
+com\challenge\alura\dto\GenericDTO.class
+com\challenge\alura\repository\VideoRepository.class
+com\challenge\alura\dto\VideoDTO.class
+com\challenge\alura\repository\GenericRepository.class
+com\challenge\alura\service\VideoService.class
+com\challenge\alura\bean\GenericBean.class
