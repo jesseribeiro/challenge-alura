@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
@@ -14,7 +15,12 @@ import javax.persistence.Entity;
 @Entity(name = "Video")
 public class VideoBean extends GenericBean {
 
+    @NotBlank
     private String titulo;
+
+    @NotBlank
     private String descricao;
+
+    @NotBlank
     private String url;
 }
