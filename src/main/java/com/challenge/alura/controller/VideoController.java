@@ -64,7 +64,7 @@ public class VideoController {
         }
     }
 
-    @GetMapping(path = "/search={titulo}")
+    @GetMapping(path = "/?search={titulo}")
     public ResponseEntity getVideosById(@PathVariable("titulo") String titulo) {
         try {
             return ResponseEntity.ok(videoService.getVideosByTItulo(titulo));
