@@ -39,7 +39,7 @@ public class GenericService<T extends GenericBean, DAO extends CrudRepository<T,
 
     public void delete(T bean) {
         bean.setDataExclusao(Calendar.getInstance());
-        repository.save(bean);
+        repository.delete(bean);
     }
 
     public T getById(Long id) {

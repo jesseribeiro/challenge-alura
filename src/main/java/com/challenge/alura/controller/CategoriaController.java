@@ -1,7 +1,10 @@
 package com.challenge.alura.controller;
 
+import com.challenge.alura.bean.CategoriaBean;
 import com.challenge.alura.bean.VideoBean;
+import com.challenge.alura.dto.CategoriaDTO;
 import com.challenge.alura.dto.VideoDTO;
+import com.challenge.alura.service.CategoriaService;
 import com.challenge.alura.service.VideoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,40 +18,40 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping(path = "/v1/videos", produces = MediaType.APPLICATION_JSON_VALUE)
-public class VideoController {
+@RequestMapping(path = "/v1/categorias", produces = MediaType.APPLICATION_JSON_VALUE)
+public class CategoriaController {
 
     @Autowired
-    VideoService videoService;
+    CategoriaService categoriaService;
 
     @GetMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity findAll() {
-        List<VideoBean> videos = videoService.findAll();
-        return ResponseEntity.ok(videos);
+        List<CategoriaBean> categorias = categoriaService.findAll();
+        return ResponseEntity.ok(categorias);
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity getById(@PathVariable("id") Long id) {
         try {
-            return ResponseEntity.ok(videoService.getByIdDTO(id));
+            return ResponseEntity.ok(categoriaService.getByIdDTO(id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody @Valid @NotNull VideoDTO videoDTO) {
+    public ResponseEntity create(@RequestBody @Valid @NotNull CategoriaDTO categoriaDTO) {
         try {
-            return ResponseEntity.ok(videoService.salvar(videoDTO));
+            return ResponseEntity.ok(categoriaService.salvar(categoriaDTO));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
     @PatchMapping(path = "/{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody @Valid @NotNull VideoDTO dto) {
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody @Valid @NotNull CategoriaDTO dto) {
         try {
-            return ResponseEntity.ok(videoService.update(id, dto));
+            return ResponseEntity.ok(categoriaService.update(id, dto));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -57,17 +60,17 @@ public class VideoController {
     @DeleteMapping(path = "/{id}")
     public ResponseEntity delete(@PathVariable("id") Long id) {
         try {
-            videoService.delete(id);
-            return ResponseEntity.ok("Vídeo excluído com sucesso!");
+            categoriaService.delete(id);
+            return ResponseEntity.ok("Categoria excluída com sucesso!");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Não foi possível excluir " + e.getMessage());
         }
     }
 
-    @GetMapping(path = "/search={titulo}")
-    public ResponseEntity getVideosById(@PathVariable("titulo") String titulo) {
+    @GetMapping(path = "/{id}/videos")
+    public ResponseEntity getVideosById(@PathVariable("id") Long id) {
         try {
-            return ResponseEntity.ok(videoService.getVideosByTItulo(titulo));
+            return ResponseEntity.ok(categoriaService.getVideosIdCategoria(id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

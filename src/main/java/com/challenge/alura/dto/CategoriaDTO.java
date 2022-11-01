@@ -1,5 +1,6 @@
 package com.challenge.alura.dto;
 
+import com.challenge.alura.bean.CategoriaBean;
 import com.challenge.alura.bean.VideoBean;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,19 +11,14 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class VideoDTO extends GenericDTO<VideoBean> {
+public class CategoriaDTO extends GenericDTO<CategoriaBean> {
 
     private String titulo;
-    private String descricao;
-    private String url;
+    private String cor;
 
-    private Long categoria;
-
-    public VideoDTO(VideoBean bean){
+    public CategoriaDTO(CategoriaBean bean){
         id = bean.getId();
         titulo = bean.getTitulo();
-        descricao = bean.getDescricao();
-        url = bean.getUrl();
-        categoria = bean.getCategoria().getId();
+        cor = bean.getCor();
     }
 }

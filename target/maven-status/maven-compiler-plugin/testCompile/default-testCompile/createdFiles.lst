@@ -1,1 +1,3 @@
 com\challenge\alura\AluraApplicationTests.class
+com\challenge\alura\service\VideoServiceTest.class
+com\challenge\alura\service\CategoriaServiceTest.class
